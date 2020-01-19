@@ -9,7 +9,7 @@ float x;            // x-pos of the center of the flower
 float y;            // y-pos of the center of the flower
 int petalColor;     // hexadecimal number of the color of petals
 int xspeed, yspeed; // movement speed for the flower
-
+float fSpace;       
 
 Flower(float temp_r, int temp_n_petals, float temp_x, float temp_y, int temp_petalColor, int temp_speed) {
   
@@ -26,6 +26,7 @@ Flower(float temp_r, int temp_n_petals, float temp_x, float temp_y, int temp_pet
 
 void display () {
 
+  
   float ballX;
   float ballY;
   
