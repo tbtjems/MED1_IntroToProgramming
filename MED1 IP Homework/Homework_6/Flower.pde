@@ -10,6 +10,8 @@ class Flower {
   float speedX; // X-speed
   float speedY; // Y-speed
 
+
+  //Constructor for Flower object
   Flower(float temp_r, float temp_n_petals, float temp_x, float temp_y, int temp_petalColor, float temp_speedX, 
     float temp_speedY) {
     r = temp_r;
@@ -21,6 +23,28 @@ class Flower {
     speedY = temp_speedY;
   }
 
+  //Second constructor, overloading the previous one and assigning different values
+  Flower() {
+    r = random(50);
+    n_petals = random(5, 15);
+    x = width/2;
+    y = height/2;
+    petalColor = color(random(255), random(255), random(255));
+    speedX = random(3, 20);
+    speedY = random(3, 20);
+  }
+
+
+  boolean overlaps(Flower other) {
+    float d = dist(x,y,other.x,other.y);
+    if (d < r + other.r) {
+      return true;
+    } else {
+      return false;
+    }
+  }
+
+  //Function to display the flower and it's petals
   void display () {
 
     float petalX;
@@ -38,6 +62,7 @@ class Flower {
     ellipse(x, y, r*1.2, r*1.2);
   }
 
+  //Function to move the flower on within the screen
   void movement () {
 
     fill(petalColor);
@@ -45,7 +70,7 @@ class Flower {
     y = y + speedY;
   }
 
-
+  //Function to make the flower bounce when hit one of the edges of the screen
   void bounce() {
     if (x < 0) {
       speedX = -speedX;
